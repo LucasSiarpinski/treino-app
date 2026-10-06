@@ -1,41 +1,35 @@
-This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
+# Treino App — Regras do projeto
 
-## Expo has changed — do not trust your training data
+## Contexto
+App mobile pessoal para planejar, executar e acompanhar treinos de musculação.
+Desenvolvedor: iniciante em código, trabalhando sozinho com IA.
+Explique sempre o "porquê" das mudanças, de forma simples.
 
-Expo ships breaking changes every SDK release. APIs you remember are likely renamed, moved, or removed. Before writing any code that touches an Expo, EAS, or React Native API:
+## Documentação (fonte da verdade)
+- docs/PRD.md — o que construir (requisitos e regras de negócio)
+- docs/DECISOES.md — decisões já tomadas (não reabrir sem motivo)
+- docs/MODELO-DADOS.md — tabelas e campos
+- docs/ROADMAP.md — etapas e status atual
+Leia os documentos relevantes antes de qualquer tarefa de produto.
 
-1. Read the major version of the `expo` package in `package.json`.
-2. Fetch the matching versioned docs: `https://docs.expo.dev/versions/v<major>.0.0/`
-3. For anything else, fetch https://docs.expo.dev/llms.txt — an index of all Expo docs with corrections to common LLM misconceptions. Follow its links to the specific page you need; never answer from memory.
+## Stack (não mudar sem aprovação)
+- Expo SDK 57 + Expo Router + TypeScript (strict)
+- Supabase (Postgres + Auth por e-mail no MVP)
+- expo-sqlite para a sessão em andamento (offline-first)
+- Testes no iPhone via Expo Go. Computador: Linux (Ubuntu). Sem Mac.
 
-## Commands
+## Regras de ouro
+1. Um passo por vez. Ao terminar cada passo, diga exatamente como testar no iPhone.
+2. Nunca altere decisões do PRD/DECISOES. Se discordar, pergunte antes.
+3. Instale pacotes com `npx expo install`, nunca `npm install <pacote>`.
+4. Nunca rode `npm audit fix --force`.
+5. Use apenas bibliotecas compatíveis com o Expo Go.
+6. Nunca apague arquivos nem altere o banco sem confirmação explícita.
+7. Nunca coloque chaves ou segredos no código. Use .env (listado no .gitignore).
+8. Responda em português. Código, nomes de arquivos, tabelas e variáveis em inglês.
+9. Ao final de cada etapa, sugira a mensagem de commit (Conventional Commits).
+10. Prefira a solução mais simples que atende ao requisito. Sem abstrações antecipadas.
 
-Use `bunx` instead of `npx` if the project uses bun (`bun.lock` present).
-
-```bash
-npx expo install <package>  # ALWAYS use instead of npm/yarn/pnpm/bun add — resolves SDK-compatible versions
-npx expo start              # start the dev server
-npx expo lint               # lint
-npx tsc --noEmit            # typecheck
-npx expo-doctor             # diagnose dependency and config issues
-npx expo install --fix      # fix incompatible package versions
-```
-
-Run lint and typecheck before declaring any task done.
-
-## Navigation & Routing
-
-- Use **Expo Router** for all navigation. Routes live in `src/app/` — every file there is a screen, `_layout.tsx` files define navigators. Keep non-route code (components, hooks, utils) outside `src/app/`.
-- Import `Link`, `router`, and `useLocalSearchParams` from `expo-router`.
-- Docs: https://docs.expo.dev/router/introduction.md
-
-## Building with EAS
-
-Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `bunx eas-cli <command>` in Bun projects, or `npx eas-cli@latest <command>` otherwise; substitute that for bare `eas` in docs examples.
-Docs: https://docs.expo.dev/eas/index.md
-
-## Rules
-
-- If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
-- Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
-- Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
+## Ambiente
+- A rede exige IPv4: NODE_OPTIONS="--dns-result-order=ipv4first" já está no ~/.bashrc.
+- Se o celular não conectar ao servidor: `npx expo start --tunnel`.
