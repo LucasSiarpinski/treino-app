@@ -8,10 +8,10 @@ Legenda: ✅ concluída · 🔄 em andamento · ⏳ pendente
 - [x] AGENTS.md, docs/, rules e skills criados
 - [x] Repositório no GitHub
 
-## Etapa 1 — Setup do app ⏳
-- [ ] App de exemplo abre no iPhone (Expo Go)
-- [ ] Telas de exemplo removidas
-- [ ] 3 abas: Dashboard, Treinos, Perfil
+## Etapa 1 — Setup do app 🔄
+- [ ] App abre no iPhone (Expo Go)
+- [x] Telas de exemplo removidas
+- [x] 3 abas: Dashboard, Treinos, Perfil
 Pronto quando: as 3 abas navegam no iPhone.
 
 ## Etapa 2 — Supabase ⏳
