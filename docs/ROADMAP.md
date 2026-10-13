@@ -2,11 +2,11 @@
 
 Legenda: ✅ concluída · 🔄 em andamento · ⏳ pendente
 
-## Etapa 0 — Ambiente de IA 🔄
+## Etapa 0 — Ambiente de IA ✅
 - [x] Node 24 via nvm; correção IPv4
 - [x] Projeto Expo SDK 57 criado
-- [ ] AGENTS.md, docs/, rules e skills criados
-- [ ] Repositório no GitHub
+- [x] AGENTS.md, docs/, rules e skills criados
+- [x] Repositório no GitHub
 
 ## Etapa 1 — Setup do app ⏳
 - [ ] App de exemplo abre no iPhone (Expo Go)
